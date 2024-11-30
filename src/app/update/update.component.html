@@ -1,0 +1,19 @@
+<!-- update.component.html -->
+<div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+  
+  <form (ngSubmit)="updateStudent()">
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="student.name" name="name" required />
+  
+    <label for="age">Age:</label>
+    <input type="number" [(ngModel)]="student.age" name="age" required />
+  
+    <label for="course">Course:</label>
+    <input type="text" [(ngModel)]="student.course" name="course" required />
+  
+    <button type="submit">Update Student</button>
+  </form>
+  
+

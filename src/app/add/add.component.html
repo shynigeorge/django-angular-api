@@ -1,0 +1,35 @@
+<!-- add-student.component.html -->
+<div class="container">
+    <h2>Add New Student</h2>
+  
+    <!-- Success message -->
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+  
+    <!-- Error message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Form for adding a student -->
+    <form (ngSubmit)="addStudent()" #studentForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="student.name" name="name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" class="form-control" [(ngModel)]="student.age" name="age" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="salary">Course:</label>
+        <input type="text" id="salary" class="form-control" [(ngModel)]="student.course" name="salary" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">Add Student</button>
+    </form>
+  </div>
+  

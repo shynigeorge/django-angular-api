@@ -1,0 +1,31 @@
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="students.length === 0 && !errorMessage">
+  <p>No students found.</p>
+</div>
+
+<table *ngIf="students.length > 0" class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Course</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <th>{{ student.id }}</th>
+      <td>{{ student.name }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.course }}</td>
+      <td>
+        <button *ngIf="student.id !== undefined" (click)="deleteStudent(student.id!)">Delete</button>
+        <a [routerLink]="['/update', student.id]"  >Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
